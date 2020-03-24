@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent, getNodeText } from '@testing-library/react';
-import NameForm from '../NameForm';
+import NameForm from '.';
 
 test('check name form', () => {
   const { getByText, container } = render(<NameForm />);

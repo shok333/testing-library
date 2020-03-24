@@ -19,6 +19,13 @@ export function reducer (state = getDefaultState(), {type, payload}) {
       }
     }
 
+    case 'LOAD_ITEMS_SUCCESS': {
+      return {
+        ...state,
+        items: [...state.items, ...payload]
+      }
+    }
+
     default:
       return state
   }

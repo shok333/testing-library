@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {addItemAction, removeItemAction} from './actions';
+import {addItemAction, removeItemAction, loadItemsAction} from './actions';
 
 class Index extends React.Component {
   state = {
@@ -24,6 +24,10 @@ class Index extends React.Component {
 
   removeItem = (value) => () => {
     this.props.removeItem(value);
+  }
+
+  componentDidMount () {
+    this.props.loadItems();
   }
 
   render () {
@@ -54,6 +58,7 @@ function mapDispatchToProps(dispatch) {
   return {
     addItem: bindActionCreators(addItemAction, dispatch),
     removeItem: bindActionCreators(removeItemAction, dispatch),
+    loadItems: () => (dispatch(loadItemsAction())),
   }
 }
 
